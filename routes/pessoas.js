@@ -9,7 +9,7 @@ const pessoasRouter = db => {
 
     router.get('/delete/:id', pessoasController.deleteOne.bind(null, db))
 
-
+    router.get('/create', pessoasController.create)
     router.post('/create', pessoasController.createOne.bind(null, db))
 
     router.get('/update/:id', pessoasController.updateForm.bind(null, db))

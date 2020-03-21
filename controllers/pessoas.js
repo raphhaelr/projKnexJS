@@ -26,7 +26,7 @@ const deleteOne = async (db, req, res) => {
 }
 
 const create = (req, res) => {
-
+    res.render('pessoas/create')
 }
 
 const createOne = async (db, req, res) => {
