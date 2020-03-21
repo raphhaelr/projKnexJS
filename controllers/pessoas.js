@@ -5,17 +5,11 @@ const getAll = async (db, req, res) => {
     res.render('pessoas/getAll', { pessoas: findAll })
 }
 
-const getOne = async (db, req, res) => {
-    const { id } = req.params
-    const pessoa = await pessoas.getOne(db, id)
-    res.send(pessoa)
-}
-
 const deleteOne = async (db, req, res) => {
     const { id } = req.params
 
-    console.log(id)
     const pessoa = await pessoas.getOne(db, id)
+
     if (pessoa.length === 0) {
         res.status(406)
     } else {
@@ -35,7 +29,6 @@ const createOne = async (db, req, res) => {
 }
 
 const updateForm = async (db, req, res) => {
-    console.log(req.params)
     const { id } = req.params
     const pessoa = await pessoas.getOne(db, id)
     res.render('pessoas/update', { pessoa })
@@ -47,12 +40,11 @@ const updateOne = async (db, req, res) => {
 
     await pessoas.update(db, id, data)
     res.status(200)
-
+    res.redirect('/pessoas')
 }
 
 module.exports = {
     getAll,
-    getOne,
     deleteOne,
     create,
     createOne,

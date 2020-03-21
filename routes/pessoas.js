@@ -5,8 +5,7 @@ const pessoasRouter = db => {
     const router = express.Router()
 
     router.get('/', pessoasController.getAll.bind(null, db))
-    router.get('/:id', pessoasController.getOne.bind(null, db))
-
+    
     router.get('/delete/:id', pessoasController.deleteOne.bind(null, db))
 
     router.get('/create', pessoasController.create)
